@@ -13,12 +13,8 @@ type config struct {
 	AppENV  string `default:"debug"`
 	Port    string `default:"8282"`
 	Host    string `default:":8282"`
-	Path    struct {
-		ProductStorePathDirectory        string `default:"Product"`
-		ProductImagesStorePathDirectory  string `default:"images"`
-		KitBlockStorePathDirectory       string `default:"kit-bash"`
-		KitBlockFileStorePathDirectory   string `default:"file"`
-		KitBlockImagesStorePathDirectory string `default:"images"`
+	Url     struct {
+		EstimateServiceStorePair string `default:"http://localhost:8484/segments"`
 	}
 }
 

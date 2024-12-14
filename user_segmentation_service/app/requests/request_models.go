@@ -1,5 +1,6 @@
 package requests
 
-type TestCreate struct {
-	Name string `validate:"required,max=255,min=3"`
+type UserSegmentPair struct {
+	UserId  string `json:"user_id" validate:"required,max=255,min=3"`
+	Segment string `json:"segment" validate:"required,max=255,min=3"`
 }

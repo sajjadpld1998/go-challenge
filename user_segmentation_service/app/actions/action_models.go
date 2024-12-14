@@ -1,3 +1,3 @@
 package actions
 
-type Test struct{}
+type Segment struct{}

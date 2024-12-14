@@ -40,7 +40,6 @@ func ThrowServerError(errMessage error) {
 		Message: "Server under maintnance, we will be back soon.",
 		err:     errMessage,
 	}
-	CaptureServerException(errMessage)
 	throwError(server)
 }
 

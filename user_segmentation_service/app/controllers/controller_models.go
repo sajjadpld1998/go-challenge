@@ -1,3 +1,3 @@
 package controllers
 
-type Test struct{}
+type Segment struct{}

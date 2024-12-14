@@ -1,3 +1,3 @@
 package routes
 
-type Test struct{}
+type Segment struct{}
