@@ -1,7 +1,7 @@
 package responses
 
 import (
-	"skeleton/repositories"
+	"user_segmentation_service/repositories"
 
 	"github.com/gin-gonic/gin"
 )

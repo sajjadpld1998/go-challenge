@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"skeleton/actions"
-	"skeleton/requests"
-	"skeleton/responses"
-	"skeleton/services"
+	"user_segmentation_service/actions"
+	"user_segmentation_service/requests"
+	"user_segmentation_service/responses"
+	"user_segmentation_service/services"
 
 	"github.com/gin-gonic/gin"
 )

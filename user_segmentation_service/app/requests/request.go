@@ -1,8 +1,8 @@
 package requests
 
 import (
-	"skeleton/error_handler"
 	"strings"
+	"user_segmentation_service/error_handler"
 
 	"github.com/go-playground/validator/v10"
 )

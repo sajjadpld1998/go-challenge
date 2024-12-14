@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"skeleton/controllers"
-	"skeleton/middleware"
+	"user_segmentation_service/controllers"
+	"user_segmentation_service/middleware"
 
 	"github.com/gin-gonic/gin"
 )

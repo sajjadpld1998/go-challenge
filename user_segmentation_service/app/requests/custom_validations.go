@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"skeleton/error_handler"
-	"skeleton/repositories"
 	"strings"
+	"user_segmentation_service/error_handler"
+	"user_segmentation_service/repositories"
 
 	"github.com/go-playground/validator/v10"
 )

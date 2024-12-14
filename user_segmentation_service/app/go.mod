@@ -1,4 +1,4 @@
-module skeleton
+module user_segmentation_service
 
 go 1.19
 

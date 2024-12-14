@@ -1,7 +1,7 @@
 package routes
 
 import (
-	_ "skeleton/docs"
+	_ "user_segmentation_service/docs"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"

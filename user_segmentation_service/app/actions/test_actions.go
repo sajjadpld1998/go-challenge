@@ -1,9 +1,9 @@
 package actions
 
 import (
-	"skeleton/repositories"
-	"skeleton/requests"
-	"skeleton/services"
+	"user_segmentation_service/repositories"
+	"user_segmentation_service/requests"
+	"user_segmentation_service/services"
 
 	"github.com/google/uuid"
 )

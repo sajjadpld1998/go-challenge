@@ -1,9 +1,8 @@
 package bootstrap
 
 import (
-	"github.com/getsentry/sentry-go"
-	"skeleton/config"
-	"skeleton/error_handler"
+	"user_segmentation_service/config"
+	"user_segmentation_service/error_handler"
 
 	"github.com/gin-gonic/gin"
 )
@@ -27,10 +26,4 @@ func initGin() {
 func runGin() {
 	//Run Gin on especial port and host
 	ginEngine.Run(config.GetConfig().Host)
-}
-func InitSentry() {
-	sentry.Init(sentry.ClientOptions{
-		Dsn:         config.GetConfig().Sentry.Dsn,
-		Environment: config.GetConfig().AppENV,
-	})
 }
