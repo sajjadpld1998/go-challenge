@@ -1,0 +1,43 @@
+appname: kit-block-builder
+appenv: debug
+port: 8484
+host: :8484
+jwt:
+  key: kit_block_access.user@management-secret!key.infinite8
+database:
+  landrockerread:
+    driver: postgres
+    user: root
+    password: root
+    host: localhost
+    port: 5432
+    sslMod: disable
+    database: test_db
+
+  landrockerwrite:
+    driver: postgres
+    user: root
+    password: root
+    host: localhost
+    port: 5432
+    sslMod: disable
+    database: test_db
+aws:
+  region: eu-west-2
+  acceskeyid: AKIA3ZHDIUZQLNRBGRXF
+  secretacceskey: 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
+filesystem:
+  default: local
+  disks:
+    local:
+      driver:  local
+      root: /var/www/html/kitblock-service.landrocker.io/builder
+      url: https://kitblock-service.landrocker.io/builder
+    public:
+      driver: local
+      root: /public
+      url: https://test.io/public
+    s3:
+      driver: s3
+      bucket: kitbash-building
+      url: https://test.io/public

@@ -1,0 +1,2306 @@
+definitions:
+  building_responses.BuildingKitBash:
+    properties:
+      id:
+        description: kit bash id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      name:
+        description: kit bash name
+        example: sci-fi1
+        type: string
+    type: object
+  building_responses.BuildingResponce:
+    properties:
+      config:
+        description: building config, it's json
+      created_at:
+        description: creation time
+        type: integer
+      dislike:
+        description: dislike count of building
+        type: integer
+      disliked:
+        description: if you disliked this building
+        type: boolean
+      id:
+        description: building id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      images:
+        description: images of building
+        example:
+        - '["https://srvs20.landrocker.io/kitbash_building/building/kit9/images/kit9_default_theme.png"]'
+        items:
+          type: string
+        type: array
+      kit_bash:
+        allOf:
+        - $ref: '#/definitions/building_responses.BuildingKitBash'
+        description: building kit name used in this creation
+      liked:
+        description: if you liked this building
+        type: boolean
+      likes:
+        description: likes count of building
+        type: integer
+      material:
+        description: building material, it's json
+      name:
+        description: building name
+        example: sci-fi1
+        type: string
+      pieces:
+        description: pieces count
+        type: integer
+      property:
+        description: building property, it's json
+      visibility:
+        description: building visibility
+        type: boolean
+      wallet:
+        description: owner hash string. it will be delete soon!
+    type: object
+  building_responses.ListBuildingsResponce:
+    properties:
+      created_at:
+        description: creation time
+        type: integer
+      dislike:
+        description: dislike count of building
+        type: integer
+      disliked:
+        description: if you disliked this building
+        type: boolean
+      id:
+        description: building id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      images:
+        description: images of building
+        example:
+        - '["https://srvs20.landrocker.io/kitbash_building/building/kit9/images/kit9_default_theme.png"]'
+        items:
+          type: string
+        type: array
+      kit_bash:
+        allOf:
+        - $ref: '#/definitions/building_responses.BuildingKitBash'
+        description: building kit name used in this creation
+      liked:
+        description: if you liked this building
+        type: boolean
+      likes:
+        description: likes count of building
+        type: integer
+      name:
+        description: building name
+        example: sci-fi1
+        type: string
+      pieces:
+        description: pieces count
+        type: integer
+      visibility:
+        description: building visibility
+        type: boolean
+      wallet:
+        description: owner hash string. it will be delete soon!
+    type: object
+  error_handler.bodyValidationError:
+    properties:
+      field:
+        description: field name
+        example: name
+        type: string
+      field_value:
+        description: value of the field
+      message:
+        description: message param
+        example: The name field is required.
+        type: string
+      rule:
+        description: rule title that denied
+        example: min
+        type: string
+      rule_param:
+        description: rule param
+        example: "10"
+        type: string
+    type: object
+  error_handler.forbiddenError:
+    properties:
+      message:
+        description: message param
+        example: The selected item does not exist!
+        type: string
+    type: object
+  error_handler.routeValidationError:
+    properties:
+      field:
+        description: field name
+        example: name
+        type: string
+      message:
+        description: message param
+        example: The selected item does not exist!
+        type: string
+      rule:
+        description: rule title that denied
+        example: required
+        type: string
+    type: object
+  error_handler.serverError:
+    properties:
+      message:
+        description: message param
+        example: The selected item does not exist!
+        type: string
+    type: object
+  error_handler.unauthorizedError:
+    properties:
+      message:
+        description: message param
+        example: The selected item does not exist!
+        type: string
+    type: object
+  fee_responses.FeeResponce:
+    properties:
+      fee:
+        description: fee type. value is like, dislike, no. 'no' meanes that you have
+          never fee this building or kitBash
+        example: like
+        type: string
+    type: object
+  kit_bash_responses.KitBashResponce:
+    properties:
+      config:
+        description: kit bash config, it's json
+      created_at:
+        description: creation time
+        type: integer
+      description:
+        description: kitBash description. it can be null
+      dislike:
+        description: dislikes count of kit bash
+        type: integer
+      disliked:
+        description: if you disliked this kit bash
+        type: boolean
+      file:
+        description: kit bash file path
+        example: https://srvs20.landrocker.io/kitbash_building/kit_bash/kit9/file/kit9.zip
+        type: string
+      id:
+        description: kit bash id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      images:
+        description: images of kit bash
+        example:
+        - '["https://srvs20.landrocker.io/kitbash_building/kit_bash/kit9/images/kit9_default_theme.png"]'
+        items:
+          type: string
+        type: array
+      liked:
+        description: if you liked this kit bash
+        type: boolean
+      likes:
+        description: likes count of kit bash
+        type: integer
+      name:
+        description: kit bash name
+        example: kit_bash_num_2
+        type: string
+      pieces:
+        description: pieces count
+        type: integer
+      style:
+        description: kitBash style. it can be null
+    type: object
+  kit_bash_responses.KitBashesIdNameResponce:
+    properties:
+      id:
+        description: kit bash id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      name:
+        description: kit bash name
+        example: kit_bash_num_2
+        type: string
+    type: object
+  kit_bash_responses.ListKitBashesResponce:
+    properties:
+      config:
+        description: kit bash config, it's json
+      created_at:
+        description: creation time
+        type: integer
+      dislike:
+        description: dislikes count of kit bash
+        type: integer
+      disliked:
+        description: if you disliked this kit bash
+        type: boolean
+      id:
+        description: kit bash id. it's UUID id and is string
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        type: string
+      images:
+        description: images of kit bash
+        example:
+        - '["https://srvs20.landrocker.io/kitbash_building/kit_bash/kit9/images/kit9_default_theme.png"]'
+        items:
+          type: string
+        type: array
+      liked:
+        description: if you liked this kit bash
+        type: boolean
+      likes:
+        description: likes count of kit bash
+        type: integer
+      name:
+        description: kit bash name
+        example: kit_bash_num_2
+        type: string
+      pieces:
+        description: pieces count
+        type: integer
+      style:
+        description: kitBash style. it can be null
+    type: object
+  repositories.Pagination:
+    properties:
+      data:
+        description: elements
+      limit:
+        description: count of elements in per page
+        example: 20
+        type: integer
+      page:
+        description: current page number
+        example: 3
+        type: integer
+      sort:
+        description: sort order by
+        example: created_at desc
+        type: string
+      total_pages:
+        description: count of total pages
+        example: 12
+        type: integer
+      total_rows:
+        description: count of total elements exists
+        example: 1000
+        type: integer
+    type: object
+  responses.ResponseContent:
+    properties:
+      code:
+        description: response code
+        example: 422
+        type: integer
+      data:
+        description: content
+      status:
+        description: status of opration success
+        example: false
+        type: boolean
+    type: object
+  responses.ResponseNoContent:
+    properties:
+      code:
+        description: response code
+        example: 200
+        type: integer
+      status:
+        description: status of opration success
+        example: true
+        type: boolean
+    type: object
+  responses.ResponseStaticError:
+    properties:
+      detail:
+        description: detail of error
+      message:
+        description: error message
+        example: Server Error
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /building:
+    get:
+      consumes:
+      - application/json
+      description: Get Buildings list ordered by created_at field descending
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        type: string
+      - description: name that you want search
+        example: sajjad
+        in: query
+        name: name
+        type: string
+      - description: column that you want to order and sort on it
+        enum:
+        - created_at
+        - name
+        - pieces
+        - likes
+        example: created_at
+        in: query
+        name: order_column
+        type: string
+      - description: type of sort. required if you pass order_column value
+        enum:
+        - asc
+        - desc
+        example: asc
+        in: query
+        name: order_type
+        type: string
+      - description: kit id that you want filter
+        example: a4d50e88-1a10-4a8b-af08-3e1060c00d5f
+        in: query
+        name: kit
+        type: string
+      - default: 1
+        description: list page number
+        example: 2
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: limits of rows count in page
+        example: 13
+        in: query
+        name: limit
+        type: integer
+      - description: list my Buildings or others. if value is 'true', list all buildings
+          of user (visibility true and false). if value is 'false', just list buildings
+          that visibility value is 'true'
+        enum:
+        - true
+        - false
+        example: true
+        in: query
+        name: mine
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/repositories.Pagination'
+                  - properties:
+                      data:
+                        items:
+                          $ref: '#/definitions/building_responses.ListBuildingsResponce'
+                        type: array
+                    type: object
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: List Buildings
+      tags:
+      - Building
+    post:
+      consumes:
+      - multipart/form-data
+      description: Create new building endpoint
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: name of building. it must be unique
+        example: home_building
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: config of building. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: config
+        required: true
+        type: string
+      - description: kit_bashe id for building
+        example: d90ad141-5d82-47fc-92ee-0606f99035c6
+        in: formData
+        name: kit_bash_id
+        required: true
+        type: string
+      - description: pieces count
+        example: "36000"
+        in: formData
+        name: pieces
+        required: true
+        type: string
+      - description: images of building
+        in: formData
+        items:
+          type: file
+        name: images[]
+        type: array
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/building_responses.BuildingResponce'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Add a new Building
+      tags:
+      - Building
+  /building/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a Building by it's name
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Delete a Building
+      tags:
+      - Building
+    get:
+      consumes:
+      - application/json
+      description: Show a Building by it's name
+      parameters:
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/building_responses.BuildingResponce'
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+      summary: Show a Building
+      tags:
+      - Building
+  /building/{id}/fee:
+    delete:
+      consumes:
+      - multipart/form-data
+      description: Delete a building like or dislike
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Delete a building like or dislike
+      tags:
+      - Fee
+    get:
+      consumes:
+      - multipart/form-data
+      description: Get building fee. you liked or disliked this building.
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/fee_responses.FeeResponce'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Get building fee.
+      tags:
+      - Fee
+  /building/{id}/fee/dislike:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Decrese Like frome Building
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Dislike a building
+      tags:
+      - Fee
+  /building/{id}/fee/like:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Add new Like to Building
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Like a building
+      tags:
+      - Fee
+  /building/{id}/update:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Update a KitBash by it's name
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: name of building. it must be unique
+        example: home_building
+        in: formData
+        name: name
+        type: string
+      - description: config of building. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: config
+        type: string
+      - description: kit_bashe id for building
+        example: d90ad141-5d82-47fc-92ee-0606f99035c6
+        in: formData
+        name: kit_bash_id
+        type: string
+      - description: visibility state. its boolean value
+        example: true
+        in: formData
+        name: visibility
+        type: boolean
+      - description: images of building
+        in: formData
+        items:
+          type: file
+        name: images[]
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Update a KitBash
+      tags:
+      - Building
+  /building/{id}/update/craft:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Update a KitBash by it's name, change material and property value.
+        this endpoint works just for admins
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: Building id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: material of building. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: material
+        type: string
+      - description: property of building. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: property
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Update a KitBash craft data by admin
+      tags:
+      - Building
+  /kit-bash:
+    get:
+      consumes:
+      - application/json
+      description: Get KitBashes list ordered by created_at field descending
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        type: string
+      - default: 1
+        description: list page number
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: limits of rows count in page
+        in: query
+        name: limit
+        type: integer
+      - description: name that you want search
+        example: sajjad
+        in: query
+        name: query
+        type: string
+      - description: column that you want to order and sort on it
+        enum:
+        - created_at
+        - name
+        - pieces
+        - likes
+        example: created_at
+        in: query
+        name: order_column
+        type: string
+      - description: type of sort. required if you pass order_column value
+        enum:
+        - asc
+        - desc
+        example: asc
+        in: query
+        name: order_type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/repositories.Pagination'
+                  - properties:
+                      data:
+                        items:
+                          $ref: '#/definitions/kit_bash_responses.ListKitBashesResponce'
+                        type: array
+                    type: object
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: List KitBashes
+      tags:
+      - KitBash
+    post:
+      consumes:
+      - multipart/form-data
+      description: Create new KitBash endpoint
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: name of kit bash. it must be unique
+        example: wall_kit_bash
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: file of kit bash
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: config of kit bash. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: config
+        type: string
+      - description: pices count
+        example: 85
+        in: formData
+        name: pieces
+        required: true
+        type: integer
+      - description: description of kit bash.
+        example: this is description
+        in: formData
+        name: description
+        type: string
+      - description: style of kit bash. maximum length is 255
+        example: this is style
+        in: formData
+        name: style
+        type: string
+      - description: images of kit bash
+        in: formData
+        items:
+          type: file
+        name: images[]
+        type: array
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/kit_bash_responses.KitBashResponce'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Add a new KitBash
+      tags:
+      - KitBash
+  /kit-bash/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a KitBash by it's name
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Delete a KitBash
+      tags:
+      - KitBash
+    get:
+      consumes:
+      - application/json
+      description: Show a KitBash by it's name
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/kit_bash_responses.KitBashResponce'
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+      summary: Show a KitBash
+      tags:
+      - KitBash
+  /kit-bash/{id}/buildings:
+    get:
+      consumes:
+      - application/json
+      description: Get Buildings list ordered by created_at field descending
+      parameters:
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - default: 1
+        description: list page number
+        example: 2
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: limits of rows count in page
+        example: 13
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/repositories.Pagination'
+                  - properties:
+                      data:
+                        items:
+                          $ref: '#/definitions/building_responses.ListBuildingsResponce'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/responses.ResponseStaticError'
+              type: object
+      summary: List KitBash Buildings
+      tags:
+      - KitBash
+  /kit-bash/{id}/fee:
+    delete:
+      consumes:
+      - multipart/form-data
+      description: Delete a KitBash like or dislike
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Delete a KitBash like or dislike
+      tags:
+      - Fee
+    get:
+      consumes:
+      - multipart/form-data
+      description: Get KitBash fee. you liked or disliked this KitBash.
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/fee_responses.FeeResponce'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Get KitBash fee.
+      tags:
+      - Fee
+  /kit-bash/{id}/fee/dislike:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Decrese Like frome KitBash
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Dislike a KitBash
+      tags:
+      - Fee
+  /kit-bash/{id}/fee/like:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Add new Like to KitBash
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Like a KitBash
+      tags:
+      - Fee
+  /kit-bash/{id}/update:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Update a KitBash by it's name
+      parameters:
+      - description: user wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: header
+        name: wallet
+        required: true
+        type: string
+      - description: KitBash Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: name of kit bash. it must be unique
+        example: wall_kit_bash
+        in: formData
+        name: name
+        type: string
+      - description: file of kit bash
+        in: formData
+        name: file
+        type: file
+      - description: config of kit bash. it must be json
+        example: '{"key":"value"}'
+        in: formData
+        name: config
+        type: string
+      - description: pices count
+        example: 85
+        in: formData
+        name: pieces
+        type: integer
+      - description: description of kit bash.
+        example: this is description
+        in: formData
+        name: description
+        type: string
+      - description: style of kit bash. maximum length is 255
+        example: this is style
+        in: formData
+        name: style
+        type: string
+      - description: images of kit bash
+        in: formData
+        items:
+          type: file
+        name: images[]
+        type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "401":
+          description: Unauthorized
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.unauthorizedError'
+                        type: array
+                    type: object
+              type: object
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.forbiddenError'
+                        type: array
+                    type: object
+              type: object
+        "404":
+          description: Not Found
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.routeValidationError'
+                        type: array
+                    type: object
+              type: object
+        "422":
+          description: Unprocessable Entity
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.bodyValidationError'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/responses.ResponseStaticError'
+                  - properties:
+                      detail:
+                        items:
+                          $ref: '#/definitions/error_handler.serverError'
+                        type: array
+                    type: object
+              type: object
+      summary: Update a KitBash
+      tags:
+      - KitBash
+  /kit-bash/kit-names:
+    get:
+      consumes:
+      - application/json
+      description: List all the kit bashes name
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/kit_bash_responses.KitBashesIdNameResponce'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/responses.ResponseStaticError'
+              type: object
+      summary: List kit bashes name
+      tags:
+      - KitBash
+  /migrate:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Migrate owner value to wallet id
+      parameters:
+      - description: your owner
+        example: E577F945E41E70DBDE20172A5E5573EB
+        in: formData
+        name: owner
+        required: true
+        type: string
+      - description: your wallet
+        example: 0xd1aF960E89C2B85D948ea038Fb98789Ed3af2BEd
+        in: formData
+        name: wallet
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.ResponseNoContent'
+        "403":
+          description: Forbidden
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/responses.ResponseStaticError'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/responses.ResponseContent'
+            - properties:
+                data:
+                  $ref: '#/definitions/responses.ResponseStaticError'
+              type: object
+      summary: Migrate owner value to wallet id
+      tags:
+      - Migrate
+swagger: "2.0"
