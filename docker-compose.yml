@@ -1,0 +1,32 @@
+version: "3.9"  # Specify the Docker Compose file format version
+
+services:
+  redis:
+    image: redis:latest # Use the latest Redis image
+    container_name: redis-container # Name of the Redis container
+    ports:
+      - "6379:6379" # Map the default Redis port
+    volumes:
+      - redis_data:/data # Persist Redis data on a named volume
+    command: ["redis-server", "--appendonly", "yes"] # Enable Redis persistence (AOF)
+
+  uss:
+    build:
+      context: ./user_segmentation_service
+    container_name: user_segmentation_service
+    ports:
+      - "8282:8282"
+    depends_on:
+      - redis
+
+  es:
+    build:
+      context: ./estimation_service
+    container_name: estimation_service
+    ports:
+      - "8484:8484"
+    depends_on:
+      - redis
+
+volumes:
+  redis_data: # Define a named volume for persisting Redis data
