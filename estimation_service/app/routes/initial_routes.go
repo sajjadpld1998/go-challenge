@@ -1,16 +1,16 @@
 package routes
 
 import (
-	_ "skeleton/docs"
+	_ "estimation_service/docs"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
-// @title			Building Service
+// @title			Estimation Service
 // @version			1.0
-// @description	This service containes Kit-Bash and Building endpoints.
+// @description	This service containes Estimation Service endpoints.
 //
 // @contact.name	Sajjad Pouladvand
 // @contact.email	sajjadpld1998@gmail.com
@@ -21,6 +21,6 @@ func InitialRoutes(router *gin.Engine) {
 	// use ginSwagger middleware to serve the API docs
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	test := Test{}
-	test.Routes(router)
+	segment := Segment{}
+	segment.Routes(router)
 }

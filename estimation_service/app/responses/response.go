@@ -6,7 +6,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func ResponseSuccess(context *gin.Context, obj any) {
+func ResponseSuccess(context *gin.Context) {
+	response := ResponseNoContent{}
+
+	response.Status = true
+	response.Code = http.StatusOK
+
+	context.JSON(http.StatusOK, response)
+}
+
+func ResponseSuccessWithContent(context *gin.Context, obj any) {
 	response := ResponseContent{}
 
 	response.Status = true

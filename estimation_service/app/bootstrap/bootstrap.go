@@ -1,12 +1,11 @@
 package bootstrap
 
 import (
-	"skeleton/config"
-	"skeleton/middleware"
-	"skeleton/repositories"
-	"skeleton/requests"
-	"skeleton/routes"
-	"skeleton/services"
+	"estimation_service/config"
+	"estimation_service/repositories"
+	"estimation_service/requests"
+	"estimation_service/routes"
+	"estimation_service/services"
 )
 
 func Boot() {
@@ -16,9 +15,6 @@ func Boot() {
 	//Initiate Gin instans and config this
 	initGin()
 
-	//init sentry
-	InitSentry()
-
 	//Initiate services
 	services.InitServices()
 
@@ -27,9 +23,6 @@ func Boot() {
 
 	//Initiate request layer boot
 	requests.InitValidation()
-
-	//Initiate middlewares
-	middleware.InitMiddleware(ginEngine)
 
 	//Initiate Routers
 	routes.InitialRoutes(ginEngine)

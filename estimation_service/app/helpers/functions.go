@@ -7,11 +7,7 @@ import (
 	"fmt"
 	"io"
 	"math/rand"
-	"mime/multipart"
 	"regexp"
-	"skeleton/config"
-	"skeleton/error_handler"
-	"skeleton/services"
 	"strconv"
 	"strings"
 	"time"
@@ -279,98 +275,6 @@ func ArrayStringToJsonArray(arr []string) (value string) {
 	return
 }
 
-func StoreProductImages(images []*multipart.FileHeader, name string) (imagesArrayJson string) {
-	Path := config.GetConfig().Path.ProductStorePathDirectory + "/" + config.GetConfig().Path.ProductImagesStorePathDirectory
-
-	imagesArrayJson, err := UploadImages(images, name, Path)
-
-	if err != nil {
-		error_handler.ThrowServerError(err)
-	}
-
-	return
-}
-
-func StoreKitBlockImages(images []*multipart.FileHeader, name string) (imagesArrayJson string) {
-	Path := config.GetConfig().Path.KitBlockStorePathDirectory + "/" + config.GetConfig().Path.KitBlockImagesStorePathDirectory
-
-	imagesArrayJson, err := UploadImages(images, name, Path)
-
-	if err != nil {
-		error_handler.ThrowServerError(err)
-	}
-
-	return
-}
-
-func StoreKitBlockFile(file *multipart.FileHeader, name string) (fullPath string) {
-	Path := config.GetConfig().Path.KitBlockStorePathDirectory + "/" + config.GetConfig().Path.KitBlockFileStorePathDirectory
-
-	fullPath, err := UploadFile(file, name, Path)
-
-	if err != nil {
-		error_handler.ThrowServerError(err)
-	}
-
-	return
-}
-
-func UploadFile(file *multipart.FileHeader, name string, path string) (fullPath string, err error) {
-	err = StringToSlug(&name)
-
-	if err != nil {
-		return
-	}
-
-	Path := path + "/" + name
-
-	fullPath, err = StoreUploadedFile(file, Path)
-
-	if err == nil {
-		fullPath = generateFileUrl(fullPath)
-	}
-
-	return
-}
-
-func UploadImages(images []*multipart.FileHeader, name string, path string) (imagesArrayJson string, err error) {
-	err = StringToSlug(&name)
-
-	if err != nil {
-		return
-	}
-
-	Path := path + "/" + name
-
-	var imagesArray []string
-
-	for _, image := range images {
-		fullPath, storEerr := StoreUploadedFile(image, Path)
-		if storEerr != nil {
-			err = storEerr
-			return
-		}
-
-		fullPath = generateFileUrl(fullPath)
-
-		imagesArray = append(imagesArray, fullPath)
-	}
-
-	if len(imagesArray) == 0 {
-		return
-	}
-
-	jsonArray, err := json.Marshal(imagesArray)
-
-	if err != nil {
-		return
-	}
-
-	imagesArrayJson = string(jsonArray)
-
-	return
-}
-
 func generateRandomStringBytes(length int) string {
 	var letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	rand.Seed(time.Now().UnixNano())
@@ -379,107 +283,6 @@ func generateRandomStringBytes(length int) string {
 		b[i] = letterBytes[rand.Intn(len(letterBytes))]
 	}
 	return string(b)
-}
-
-func generateFileUrl(path string) (fullPath string) {
-	storageDriver := config.GetConfig().FileSystem.Default
-
-	if storageDriver == "local" {
-		fullPath = config.GetConfig().FileSystem.Disks.Local.Url + path + "?hash=" + generateRandomStringBytes(32)
-	}
-
-	return
-}
-
-func StoreUploadedFile(file *multipart.FileHeader, path string) (fullPath string, err error) {
-	StringWithSlashInPrefixAndSuffix(&path)
-
-	directoryPath := path
-
-	fullPath = path + file.Filename
-
-	storageDriver := config.GetConfig().FileSystem.Default
-
-	switch storageDriver {
-	case "s3":
-		aws := services.Aws{}
-		s3Error := aws.S3().Store(file, fullPath)
-		if s3Error != nil {
-			err = s3Error
-		}
-	case "local":
-		localStorage := services.LocalStorage{}
-		localError := localStorage.Store(file, directoryPath)
-		if localError != nil {
-			err = localError
-		}
-	}
-
-	return
-}
-
-func DelteOldFile(oldFilePath, newFilePath string) {
-	if oldFilePath != newFilePath {
-		err := DeleteFile(oldFilePath)
-
-		if err != nil {
-			error_handler.ThrowServerError(err)
-		}
-	}
-}
-
-func DeleteOldImages(oldImages, newImages string) {
-	var err error
-	var oldImagesArray []string
-
-	err = json.Unmarshal([]byte(oldImages), &oldImagesArray)
-
-	if err != nil {
-		error_handler.ThrowServerError(err)
-	}
-
-	var newImagesArray []string
-
-	err = json.Unmarshal([]byte(newImages), &newImagesArray)
-
-	if err != nil {
-		error_handler.ThrowServerError(err)
-	}
-
-	if len(oldImagesArray) > 0 {
-		for _, oldImage := range oldImagesArray {
-			exists := false
-
-			for _, newImage := range newImagesArray {
-				if oldImage == newImage {
-					exists = true
-				}
-			}
-
-			if exists {
-				err = DeleteFile(oldImage)
-
-				if err != nil {
-					error_handler.ThrowServerError(err)
-				}
-			}
-		}
-	}
-}
-
-func DeleteFile(fullPath string) (err error) {
-	storageDriver := config.GetConfig().FileSystem.Default
-
-	switch storageDriver {
-	case "s3":
-		aws := services.Aws{}
-		s3Error := aws.S3().Delete(fullPath)
-		if s3Error != nil {
-			err = s3Error
-		}
-	}
-
-	return
 }
 
 func StringWithSlashInPrefixAndSuffix(path *string) {

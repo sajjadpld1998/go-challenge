@@ -1,6 +1,6 @@
 package main
 
-import "skeleton/bootstrap"
+import "estimation_service/bootstrap"
 
 func main() {
 	//Bootstrap project
